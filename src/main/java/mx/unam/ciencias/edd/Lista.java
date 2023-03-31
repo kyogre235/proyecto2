@@ -55,7 +55,7 @@ public class Lista<T> implements Coleccion<T> {
         /* Nos da el elemento siguiente. */
         @Override public T next() {
             if (siguiente == null)
-            throw new NoSuchElementException("no hay siguiente elemento");
+                throw new NoSuchElementException("no hay siguiente elemento");
 
             anterior = siguiente;
             siguiente = siguiente.siguiente;
@@ -135,13 +135,14 @@ public class Lista<T> implements Coleccion<T> {
      *         <code>null</code>.
      */
     @Override public void agrega(T elemento) {
-        if (elemento == null) {
+        if (elemento == null) 
             throw new IllegalArgumentException("elemento no puede ser null");
-        }
+        
         Nodo n = new Nodo(elemento);
-        if (rabo == null) {
+
+        if (rabo == null)
             cabeza = rabo = n;
-        } else {
+        else {
             rabo.siguiente = n;
             n.anterior = rabo;
             rabo = n;
@@ -168,15 +169,15 @@ public class Lista<T> implements Coleccion<T> {
      *         <code>null</code>.
      */
     public void agregaInicio(T elemento) {
-        if (elemento == null) {
+        if (elemento == null)
             throw new IllegalArgumentException("elemento no puede ser null");
-        }
+        
 
         Nodo n = new Nodo(elemento);
 
-        if (rabo == null) {
+        if (rabo == null)
             cabeza = rabo = n;
-        } else {
+        else {
             cabeza.anterior = n;
             n.siguiente = cabeza;
             cabeza = n;
@@ -213,6 +214,7 @@ public class Lista<T> implements Coleccion<T> {
             agregaFinal(elemento);
             return;
         }
+
         Nodo nuevo = new Nodo(elemento);
         Nodo nodoaux = buscaNodo(i);
         
@@ -266,6 +268,7 @@ public class Lista<T> implements Coleccion<T> {
 
         T eliminado = cabeza.elemento;
         cabeza = cabeza.siguiente;
+
         if (cabeza != null)
             cabeza.anterior = null;
         else
@@ -363,10 +366,9 @@ public class Lista<T> implements Coleccion<T> {
      */
     public T getPrimero() {
         if (cabeza == null)
-        throw new NoSuchElementException("no hay elementos en esta lista");
+            throw new NoSuchElementException("no hay elementos en esta lista");
 
-        T elemento = cabeza.elemento;
-        return elemento;
+        return cabeza.elemento;
     }
 
     /**
@@ -378,8 +380,7 @@ public class Lista<T> implements Coleccion<T> {
         if (rabo == null)
             throw new NoSuchElementException("no hay elementos en esta lista");
 
-        T elemento = rabo.elemento;
-        return elemento;
+        return cabeza.elemento;
     }
 
     /**
@@ -414,9 +415,9 @@ public class Lista<T> implements Coleccion<T> {
             contador++;
             n = n.siguiente;
         }
-        if (n == null) {
+        if (n == null)
             contador = -1;
-        }
+        
         return contador;
     }
 
@@ -454,6 +455,7 @@ public class Lista<T> implements Coleccion<T> {
         
         if (longitud != lista.getLongitud())
             return false;
+            
         Nodo n1 = cabeza;
         Nodo n2 = lista.cabeza;
 
