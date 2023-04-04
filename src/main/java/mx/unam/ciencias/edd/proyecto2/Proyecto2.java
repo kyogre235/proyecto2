@@ -12,7 +12,6 @@ public static void main(String[] args) {
   try {
     
     lista = lector.lector(args[0]);
-    System.out.println(lista.getLineaPlana());
     generador.generador(lista);
     
   } catch (Exception e) {

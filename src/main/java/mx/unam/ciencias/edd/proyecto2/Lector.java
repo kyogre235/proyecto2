@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-import mx.unam.ciencias.edd.Lista;
+
 public class Lector {
    
     public Lector (){};
@@ -15,7 +15,6 @@ public class Lector {
     protected Linea lector(String archivo) throws IOException{
         Linea linea = new Linea("");
         String l = "";
-        System.out.println(archivo);
         try (BufferedReader lectorplano = new BufferedReader(new FileReader(archivo))) {   
             String lineaActual;  
 

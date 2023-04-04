@@ -2,8 +2,6 @@ package mx.unam.ciencias.edd.proyecto2;
 
 
 import mx.unam.ciencias.edd.Lista;
-import mx.unam.ciencias.edd.Pila;
-import mx.unam.ciencias.edd.Cola;
 import mx.unam.ciencias.edd.ArbolBinarioCompleto;
 import mx.unam.ciencias.edd.ArbolBinarioOrdenado;
 import mx.unam.ciencias.edd.ArbolRojinegro;
@@ -39,7 +37,24 @@ public class CreadorEsctructuras {
     
     protected static ArbolBinarioCompleto<Integer> creadorArbolBinarioCompleto(String args){
         ArbolBinarioCompleto <Integer> abc = new ArbolBinarioCompleto<>();
-        //aqui va el codigo faltante
+        String valor ="k";
+        Character[] ch = Linea.lineaChar(args);
+        int j = 0;
+        valor = "k";
+
+        for(j = 0; j < ch.length; j++){
+
+            if(Character.isDigit(ch[j])){
+                if(valor.contains("k"))
+                    valor = "";
+                valor = valor + ch[j];
+            }
+
+            if(!valor.contains("k") && (Character.isWhitespace(ch[j]))){
+                abc.agrega(Integer.parseInt(valor));
+                valor = "k";
+            }
+        }
         return abc;
     }
 
