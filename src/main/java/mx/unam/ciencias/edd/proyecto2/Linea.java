@@ -22,7 +22,7 @@ public class Linea implements Comparable<Linea> {
     protected Linea(String linea){
         
         lineaPlana = Normalizer.normalize(linea,Normalizer.Form.NFD);
-        //lineaPlana = lineaPlana.toLowerCase().replaceAll("[ ,/n]", "");
+        lineaPlana = lineaPlana.replaceAll("\t", "");
 
     }
     /**
@@ -33,8 +33,15 @@ public class Linea implements Comparable<Linea> {
         return lineaPlana;
     }
 
-    public String toString(){
-        return lineaPlana;
+
+    protected static Character[] lineaChar(String linea){
+        Character[] ch = new Character[linea.length()];
+        int i;
+        for(i=0;i<linea.length();i++){
+            ch[i]=linea.charAt(i);
+        }
+        
+        return ch;
     }
     /**
      * Compara la Linea que invoca el metodo con otra Linea

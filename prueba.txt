@@ -1,7 +1,7 @@
 # Clase:
-        ArbolRojinegro
+	Lista
     # Elementos:
-    1 2 3 4
+    1 2 3 4 si
 # Más elementos
 5 6 7 8
                         # Todavía MÁS elementos
