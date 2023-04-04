@@ -1,11 +1,10 @@
 package mx.unam.ciencias.edd.proyecto2;
 
 import mx.unam.ciencias.edd.Lista;
-import mx.unam.ciencias.edd.ArbolBinario;
 import mx.unam.ciencias.edd.ArbolBinarioCompleto;
 import mx.unam.ciencias.edd.ArbolBinarioOrdenado;
 import mx.unam.ciencias.edd.ArbolRojinegro;
-import mx.unam.ciencias.edd.Cola;
+
 
 public class SVGgenerador {
     /**constructor privado para evitar la creacion de instancias*/
