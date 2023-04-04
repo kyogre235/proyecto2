@@ -15,17 +15,14 @@ public class SVGgenerador {
        String argumento = args.getLineaPlana();
        
             if(argumento.contains("Lista")){
-                
                 Lista<Integer> estructura = CreadorEsctructuras.creadorLista(argumento);
-                System.out.println(estructura.toString());
                 svgLista(estructura);
             } else if(argumento.contains("Pila")){
-                
-                Pila<Integer> estructura = CreadorEsctructuras.creadorPila(argumento);
-                
+                Lista<Integer> estructura = CreadorEsctructuras.creadorLista(argumento);
+                svgPila(estructura);
             } else if(argumento.contains("Cola")){
                 
-                Cola<Integer> estructura = CreadorEsctructuras.creadorCola(argumento);
+                Lista<Integer> estructura = CreadorEsctructuras.creadorLista(argumento);
                 
             } else if(argumento.contains("ArbolBinarioCompleto")){
                 
@@ -63,16 +60,12 @@ public class SVGgenerador {
         String svg = "<?xml version='1.0' encoding='UTF-8' ?>"+"\n";
         int tamLista = lista.getElementos();
         int pixeles = 20 + (54*tamLista);
-        svg = svg + "<svg fill='white' width='"+pixeles+"' height='100'>"+"\n"+"<g>"+"\n";
+        svg = svg + "<svg width='"+pixeles+"' height='100'>"+"\n"+"<g>"+"\n";
         svg = svg + "<rect x='0' y='14' width='"+pixeles+"' height='50' stroke='white' fill='white'/>"+"\n";
-        int i;
-        svg = svg + "<rect x='10' y='30' width='44' height='20' stroke='black' stroke-width='1' fill='white'/>"+"\n";
-        svg = svg + 
-        String.format("<text fill='black' font-family='sans-serif' font-size='10' x='%d' y='44' text-anchor='middle'>%d</text>",32 ,lista.get(0))
-        +"\n";
+        int i; 
         int inicio = 10;
-        for(i = 1; i<tamLista; i++){
-            int tam =inicio +(54*i) ;
+        for(i = 0; i<tamLista; i++){
+            int tam = inicio +(54*i) ;
             
             String rectangulo = String.format
             ("<rect x='%d' y='30' width='44' height='20' stroke='black' stroke-width='1' fill='white'/>",tam);
@@ -91,9 +84,7 @@ public class SVGgenerador {
             +"\n";
 
         }
-
         svg = svg +"</g>"+"\n"+"</svg>";
-
         try {
             Lector l = new Lector();
             l.escritor(svg);
@@ -101,6 +92,12 @@ public class SVGgenerador {
             System.err.println("no se ha podigo guardar el archivo");
         }
 
+    }
+    private void svgPila (Lista<Integer> lista){
+        String svg = "<?xml version='1.0' encoding='UTF-8' ?>"+"\n";
+        int tamLista = lista.getElementos();
+        int pixeles = 20 + (54*tamLista);
+        //falta por terminar
     }
 }
 

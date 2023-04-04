@@ -1,5 +1,5 @@
 # Clase:
-	Lista
+	Pila
     # Elementos:
     1 2 3 4 si
 # Más elementos

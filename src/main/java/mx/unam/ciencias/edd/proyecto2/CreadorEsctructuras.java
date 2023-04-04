@@ -36,18 +36,7 @@ public class CreadorEsctructuras {
         return lista;
     }
 
-    protected static Pila<Integer> creadorPila(String args){
-        Pila <Integer> pila = new Pila<>();
-        //aqui va el codigo faltante
-        return pila;
-    }
-
-    protected static Cola<Integer> creadorCola(String args){
-        Cola <Integer> cola = new Cola<>();
-        //aqui va el codigo faltante
-        return cola;
-    }
-
+    
     protected static ArbolBinarioCompleto<Integer> creadorArbolBinarioCompleto(String args){
         ArbolBinarioCompleto <Integer> abc = new ArbolBinarioCompleto<>();
         //aqui va el codigo faltante
