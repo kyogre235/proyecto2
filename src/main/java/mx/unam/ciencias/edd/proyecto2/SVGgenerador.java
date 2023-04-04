@@ -4,7 +4,7 @@ import mx.unam.ciencias.edd.Lista;
 import mx.unam.ciencias.edd.ArbolBinarioCompleto;
 import mx.unam.ciencias.edd.ArbolBinarioOrdenado;
 import mx.unam.ciencias.edd.ArbolRojinegro;
-
+import mx.unam.ciencias.edd.ArbolAVL;
 
 public class SVGgenerador {
     /**constructor privado para evitar la creacion de instancias*/
@@ -27,19 +27,15 @@ public class SVGgenerador {
                 System.out.println(estructura.toString());
                 svgArbolCompleto(estructura);
             } else if(argumento.contains("ArbolBinarioOrdenado")){
-                
                 ArbolBinarioOrdenado<Integer> estructura = 
                 CreadorEsctructuras.creadorArbolBinarioOrdenado(argumento);
-                
+                svgArbolOrdenado(estructura);
             } else if(argumento.contains("ArbolRojinegro")){
-                
                 ArbolRojinegro<Integer> estructura = CreadorEsctructuras.creadorArbolRojinegro(argumento);
-                
+                svgArbolRojinegro(estructura);
             } else if(argumento.contains("ArbolAVL")){
-                //coloca el AVL
-                
-                CreadorEsctructuras.creadorArbolAVL(argumento);
-                
+                ArbolAVL<Integer> estructura = CreadorEsctructuras.creadorArbolAVL(argumento);
+                svgArbolAVL(estructura);
             } else if(argumento.contains("Grafica")){
                 //coloca la grafica
                 
@@ -66,9 +62,17 @@ public class SVGgenerador {
         SVGArbolBinarioCompleto.graficarArbol(arbol);
     }
 
+    private void svgArbolOrdenado(ArbolBinarioOrdenado<Integer> arbol){
 
+    }
+
+    private void svgArbolRojinegro(ArbolRojinegro<Integer> arbol){
+
+    }
     
+    private void svgArbolAVL(ArbolAVL<Integer> arbol){
 
+    }
     
 }
 

@@ -93,7 +93,9 @@ public class ArbolBinarioCompleto<T> extends ArbolBinario<T> {
      * metodo que recorre el arbol de forma bfs (con O(n)) 
      * y regresa el primer vertice que le falte un hijo
      */
-    private VerticeArbolBinario<T> recorridoBFS1(){
+    
+    /*
+     * private VerticeArbolBinario<T> recorridoBFS1(){
         Cola<Vertice> cola = new Cola<>();
         cola.mete(raiz);
         
@@ -111,6 +113,8 @@ public class ArbolBinarioCompleto<T> extends ArbolBinario<T> {
         //este return nunca va a llegar, solo lo pongo para que compile
         return null; 
     }
+     */
+    
     /* 
      * metodo que recorre el arbol de forma bfs (con O(log2n)) 
      * y regresa el primer vertice que le falte un hijo
