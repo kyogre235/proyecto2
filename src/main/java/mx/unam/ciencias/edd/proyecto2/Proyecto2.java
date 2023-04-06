@@ -16,6 +16,7 @@ public static void main(String[] args) {
     
   } catch (Exception e) {
     System.err.println("Error con el archivo");
+    e.printStackTrace();
   }
   
 }
