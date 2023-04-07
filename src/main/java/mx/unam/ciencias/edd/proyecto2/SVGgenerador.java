@@ -24,7 +24,6 @@ public class SVGgenerador {
                 svgLista(estructura, false);
             } else if(argumento.contains("ArbolBinarioCompleto")){
                 ArbolBinarioCompleto<Integer> estructura = CreadorEsctructuras.creadorArbolBinarioCompleto(argumento);
-                System.out.println(estructura.toString());
                 svgArbolCompleto(estructura);
             } else if(argumento.contains("ArbolBinarioOrdenado")){
                 ArbolBinarioOrdenado<Integer> estructura = 

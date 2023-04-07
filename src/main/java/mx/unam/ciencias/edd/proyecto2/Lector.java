@@ -1,8 +1,6 @@
 package mx.unam.ciencias.edd.proyecto2;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -31,22 +29,9 @@ public class Lector {
         }
     }
 
-    protected void escritor(String codigo)throws IOException {
-        try {
-            File archivo = new File("Esctructura.svg");  
+    protected void escritor(String codigo) {
+        System.out.println(codigo);
 
-            if(!archivo.exists())
-                archivo.createNewFile();
-
-            FileWriter escritorArchivo = new FileWriter(archivo);
-            BufferedWriter buffer = new BufferedWriter(escritorArchivo);
-
-            buffer.write(codigo);
-            buffer.close();
-        } catch (IOException e) {
-            throw new IOException("accion no valida");
-        }
-    }
-
+}
 }
 
