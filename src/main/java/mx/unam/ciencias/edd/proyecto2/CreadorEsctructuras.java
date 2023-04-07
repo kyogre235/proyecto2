@@ -72,7 +72,24 @@ public class CreadorEsctructuras {
    
     protected static ArbolAVL<Integer> creadorArbolAVL(String args){
         ArbolAVL <Integer> aAVL = new ArbolAVL<>();
-        //aqui va el codigo faltante
+        String valor ="k";
+        Character[] ch = Linea.lineaChar(args);
+        int j = 0;
+        valor = "k";
+
+        for(j = 0; j < ch.length; j++){
+
+            if(Character.isDigit(ch[j])){
+                if(valor.contains("k"))
+                    valor = "";
+                valor = valor + ch[j];
+            }
+
+            if(!valor.contains("k") && (Character.isWhitespace(ch[j]))){
+                aAVL.agrega(Integer.parseInt(valor));
+                valor = "k";
+            }
+        }
         return aAVL;
     }
     //cambia rojinegro por grafica

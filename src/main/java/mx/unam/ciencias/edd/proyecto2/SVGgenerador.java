@@ -70,7 +70,7 @@ public class SVGgenerador {
     }
     
     private void svgArbolAVL(ArbolAVL<Integer> arbol){
-
+        SVGArbolAVL.graficarArbol(arbol);
     }
     
 }
