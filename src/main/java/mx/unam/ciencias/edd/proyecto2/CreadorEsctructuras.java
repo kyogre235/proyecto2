@@ -60,13 +60,47 @@ public class CreadorEsctructuras {
 
     protected static ArbolBinarioOrdenado<Integer> creadorArbolBinarioOrdenado(String args){
         ArbolBinarioOrdenado <Integer> abo = new ArbolBinarioOrdenado<>();
-        //aqui va el codigo faltante
+        String valor ="k";
+        Character[] ch = Linea.lineaChar(args);
+        int j = 0;
+        valor = "k";
+
+        for(j = 0; j < ch.length; j++){
+
+            if(Character.isDigit(ch[j])){
+                if(valor.contains("k"))
+                    valor = "";
+                valor = valor + ch[j];
+            }
+
+            if(!valor.contains("k") && (Character.isWhitespace(ch[j]))){
+                abo.agrega(Integer.parseInt(valor));
+                valor = "k";
+            }
+        }
         return abo;
     }
 
     protected static ArbolRojinegro<Integer> creadorArbolRojinegro(String args){
         ArbolRojinegro <Integer> arn = new ArbolRojinegro<>();
-        //aqui va el codigo faltante
+        String valor ="k";
+        Character[] ch = Linea.lineaChar(args);
+        int j = 0;
+        valor = "k";
+
+        for(j = 0; j < ch.length; j++){
+
+            if(Character.isDigit(ch[j])){
+                if(valor.contains("k"))
+                    valor = "";
+                valor = valor + ch[j];
+            }
+
+            if(!valor.contains("k") && (Character.isWhitespace(ch[j]))){
+                arn.agrega(Integer.parseInt(valor));
+                valor = "k";
+            }
+        }
         return arn;
     }
    

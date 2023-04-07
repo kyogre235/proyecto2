@@ -1,20 +1,22 @@
 package mx.unam.ciencias.edd.proyecto2;
 
-import mx.unam.ciencias.edd.ArbolAVL;
+import mx.unam.ciencias.edd.ArbolRojinegro;
+import mx.unam.ciencias.edd.Lista;
 import mx.unam.ciencias.edd.Cola;
 import mx.unam.ciencias.edd.VerticeArbolBinario;
-import mx.unam.ciencias.edd.Lista;
-public class SVGArbolAVL{
+import mx.unam.ciencias.edd.Color;
 
-    protected static void graficarArbol(ArbolAVL<Integer> arbol){
+
+public class SVGArbolRojinegro {
+    protected static void graficarArbol(ArbolRojinegro<Integer> arbol){
         String svg = "<?xml version='1.0' encoding='UTF-8' ?>"+"\n";
         Cola<Boolean> colaB = new Cola<>();
         Lista<VerticeArbolBinario<Integer>> lista = new Lista<>();
-        Cola<Integer> colaP = new Cola<>();
-        BFS bfs = new BFS(arbol);
+
+        DFS bfs = new DFS(arbol);
         colaB = bfs.getCola();
         lista = bfs.getLista();
-        colaP = bfs.getColaP();
+       
         int nivel = arbol.altura();
         int largo = 22 * (nivel+1);
         int ancho = 155 * (nivel+1);
@@ -37,7 +39,6 @@ public class SVGArbolAVL{
         double y = 5;
         double x2;
         double y2;
-        double xa;
         double consta = 19;
         boolean existe;
 
@@ -54,11 +55,10 @@ public class SVGArbolAVL{
             
              
             if(existe){
-                xa = colaP.saca();
                 vertice = lista.eliminaUltimo();
-                int alt = vertice.altura();
-                int balance = balanceSeguro(vertice);
-                String bal = alt + "/" + balance;
+                
+                
+                Color color = arbol.getColor(vertice);
                 if(vertice.hayIzquierdo()){
                     x2 = (x+(espacioNivel(espacio, i+1)*j*2))/2;
                     y2 = y + consta;
@@ -73,20 +73,13 @@ public class SVGArbolAVL{
                         
                 }   
                 
-                svg = svg + String.format("<circle cx='%f' cy='%f' r='%f' stroke='black' stroke-width='1' fill='black' />\n",x,y,radio);
-                svg = svg + String.format("<text fill='white' font-family='sans-serif' font-size='%f' x='%f' y='%f' text-anchor='middle'>%d</text>\n",letra,x,y+(1*reductor),vertice.get());
+                if(color == Color.ROJO)
+                    svg = svg + String.format("<circle cx='%f' cy='%f' r='%f' stroke='red' stroke-width='1' fill='red' />\n",x,y,radio);
+                else
+                    svg = svg + String.format("<circle cx='%f' cy='%f' r='%f' stroke='black' stroke-width='1' fill='black' />\n",x,y,radio);
 
-                if(xa == 0){
-                    svg = svg + String.format("<text fill='black' font-family='sans-serif' font-size='%f' x='%f' y='%f' text-anchor='middle'>%s</text>\n",letra,x,(y+(1*reductor))-(radio + 3),bal);
-                }
-                if(xa == 1){
-                    svg = svg + String.format("<text fill='black' font-family='sans-serif' font-size='%f' x='%f' y='%f' text-anchor='middle'>%s</text>\n",letra,x-(radio*1.5),(y+(1*reductor))-(radio*.5),bal);
-                }
-                if(xa == 2){
-                    svg = svg + String.format("<text fill='black' font-family='sans-serif' font-size='%f' x='%f' y='%f' text-anchor='middle'>%s</text>\n",letra,x+(radio*1.5),(y+(1*reductor))-(radio*.5),bal);
- 
-                }
-                
+               svg = svg + String.format("<text fill='white' font-family='sans-serif' font-size='%f' x='%f' y='%f' text-anchor='middle'>%d</text>\n",letra,x,y+(1*reductor),vertice.get());
+
                 j++;
             } else
                 j++;        
@@ -116,14 +109,4 @@ public class SVGArbolAVL{
         return regreso;
     }
 
-    private static int balanceSeguro(VerticeArbolBinario<Integer> v){
-        if(v.hayIzquierdo() && v.hayDerecho())
-            return v.izquierdo().altura() - v.derecho().altura();
-        else if(!v.hayIzquierdo() && v.hayDerecho())
-            return (-1) - v.derecho().altura();
-        else if(v.hayIzquierdo() && !v.hayDerecho())
-            return v.izquierdo().altura() - (-1);
-        else
-            return 0;
-    }
 }

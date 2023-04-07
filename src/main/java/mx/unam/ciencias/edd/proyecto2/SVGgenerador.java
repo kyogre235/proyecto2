@@ -62,11 +62,11 @@ public class SVGgenerador {
     }
 
     private void svgArbolOrdenado(ArbolBinarioOrdenado<Integer> arbol){
-
+        SVGArbolBinarioOrdenado.graficarArbol(arbol);
     }
 
     private void svgArbolRojinegro(ArbolRojinegro<Integer> arbol){
-
+        SVGArbolRojinegro.graficarArbol(arbol);
     }
     
     private void svgArbolAVL(ArbolAVL<Integer> arbol){

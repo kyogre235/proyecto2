@@ -10,7 +10,7 @@ public class SVGArbolBinarioCompleto {
         String svg = "<?xml version='1.0' encoding='UTF-8' ?>"+"\n";
         Cola<VerticeArbolBinario<Integer>> cola = new Cola<>();
         int nivel = arbol.altura();
-        int largo = 21 * (nivel+1);
+        int largo = 22 * (nivel+1);
         int ancho = 155 * (nivel+1);
         double radio = 10;
         double letra = 5;
