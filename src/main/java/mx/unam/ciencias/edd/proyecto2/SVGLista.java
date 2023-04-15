@@ -28,7 +28,7 @@ public class SVGLista {
                 svg += SVGLineas.graficarPoligono(tam - 9, 30, tam - 7, 33, tam - 7, 27);
 
             svg += SVGLineas.graficarPoligono(tam - 1, 30, tam - 3, 33, tam - 3, 27);
-            svg += SVGLineas.graficarTexto(10, tam + 22, 34, lista.get(i));
+            svg += SVGLineas.graficarTexto("black",10, tam + 22, 34, lista.get(i).toString());
 
         }
         svg += "<rect x='0' y='14' width='9' height='50' stroke='white' fill='white'/>" + "\n";

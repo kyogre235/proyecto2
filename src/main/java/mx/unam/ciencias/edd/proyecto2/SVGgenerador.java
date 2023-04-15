@@ -15,26 +15,35 @@ public class SVGgenerador {
        
             if(argumento.contains("Lista")){
                 Lista<Integer> estructura = CreadorEsctructuras.creadorLista(argumento);
-                svgLista(estructura,true);
+                SVGLista.graficarLista(estructura, true);
+                
             } else if(argumento.contains("Pila")){
                 Lista<Integer> estructura = CreadorEsctructuras.creadorLista(argumento);
-                svgPila(estructura);
+                SVGPila.graficarPila(estructura);
+
             } else if(argumento.contains("Cola")){
                 Lista<Integer> estructura = CreadorEsctructuras.creadorLista(argumento);
-                svgLista(estructura, false);
+                SVGLista.graficarLista(estructura, false);
+
             } else if(argumento.contains("ArbolBinarioCompleto")){
                 ArbolBinarioCompleto<Integer> estructura = CreadorEsctructuras.creadorArbolBinarioCompleto(argumento);
-                svgArbolCompleto(estructura);
+                SVGArbolBinarioCompleto a = new SVGArbolBinarioCompleto();
+                a.graficarArbol(estructura); 
+
             } else if(argumento.contains("ArbolBinarioOrdenado")){
-                ArbolBinarioOrdenado<Integer> estructura = 
-                CreadorEsctructuras.creadorArbolBinarioOrdenado(argumento);
-                svgArbolOrdenado(estructura);
+                ArbolBinarioOrdenado<Integer> estructura = CreadorEsctructuras.creadorArbolBinarioOrdenado(argumento);
+                 SVGArbolBinarioOrdenado.graficarArbol(estructura);
+
             } else if(argumento.contains("ArbolRojinegro")){
                 ArbolRojinegro<Integer> estructura = CreadorEsctructuras.creadorArbolRojinegro(argumento);
-                svgArbolRojinegro(estructura);
+                SVGArbolRojinegro a = new SVGArbolRojinegro();
+                a.graficarArbol(estructura); 
+
             } else if(argumento.contains("ArbolAVL")){
                 ArbolAVL<Integer> estructura = CreadorEsctructuras.creadorArbolAVL(argumento);
-                svgArbolAVL(estructura);
+                SVGArbolAVL a = new SVGArbolAVL();
+                a.graficarArbol(estructura); 
+                
             } else if(argumento.contains("Grafica")){
                 //coloca la grafica
                 
@@ -44,35 +53,7 @@ public class SVGgenerador {
                 System.err.println("la escructura no esta bien escrita o no existe,"+"\n"
                 +"tienes que poner el nombre de la esctructura iniciando con mayusculas\npor ejemplo:\n"+"Lista\nArbolBinarioCompleto\netc.");
             }
-        
-        return;
-
     }
-
-    protected void svgLista(Lista<Integer> listaS, boolean esLista){
-        SVGLista.graficarLista(listaS, esLista);
-    }
-
-    private void svgPila (Lista<Integer> lista){
-        SVGPila.graficarPila(lista);
-    }
-
-    private void svgArbolCompleto(ArbolBinarioCompleto<Integer> arbol){
-        SVGArbolBinarioCompleto.graficarArbol(arbol);
-    }
-
-    private void svgArbolOrdenado(ArbolBinarioOrdenado<Integer> arbol){
-        SVGArbolBinarioOrdenado.graficarArbol(arbol);
-    }
-
-    private void svgArbolRojinegro(ArbolRojinegro<Integer> arbol){
-        SVGArbolRojinegro.graficarArbol(arbol);
-    }
-    
-    private void svgArbolAVL(ArbolAVL<Integer> arbol){
-        SVGArbolAVL.graficarArbol(arbol);
-    }
-    
 }
 
 
