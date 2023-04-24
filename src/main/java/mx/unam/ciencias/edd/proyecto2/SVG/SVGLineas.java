@@ -1,7 +1,10 @@
-package mx.unam.ciencias.edd.proyecto2;
-
+package mx.unam.ciencias.edd.proyecto2.SVG;
+/**
+ * clase en donde estan los formatos para crear diferentes estructuras en un SVG
+ * digamos que es una clase con plantillas
+ */
 public class SVGLineas {
-    
+    /** constructor privado para evitar la creacion de instancias */
     private SVGLineas(){};
 
     protected static String graficarRectangulo(double x, double y, double ancho, double largo, double grosor){
@@ -33,14 +36,4 @@ public class SVGLineas {
     protected static String finalizarGrafica(){
         return "</g>\n</svg>";
     }
-
-
-    //svg += SVGLineas.graficarRectangulo();
-    //svg += SVGLineas.graficarCirculo();
-    //svg += SVGLineas.graficarTexto();
-    //svg += SVGLineas.graficarPoligono();
-    //svg += SVGLineas.graficarLinea();
-    //svg += SVGLineas.graficarArea();
-    //svg += SVGLineas.iniciarGraficos();
-    //svg += SVGLineas.finalizarGrafica();
 }

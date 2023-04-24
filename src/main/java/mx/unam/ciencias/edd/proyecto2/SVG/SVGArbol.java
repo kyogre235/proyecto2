@@ -1,9 +1,11 @@
-package mx.unam.ciencias.edd.proyecto2;
+package mx.unam.ciencias.edd.proyecto2.SVG;
 
 import mx.unam.ciencias.edd.ArbolBinario;
 import mx.unam.ciencias.edd.Cola;
 import mx.unam.ciencias.edd.VerticeArbolBinario;
 import mx.unam.ciencias.edd.Lista;
+import mx.unam.ciencias.edd.proyecto2.BFS;
+import mx.unam.ciencias.edd.proyecto2.Lector;
 
 public class SVGArbol {
     protected void graficarArbol(ArbolBinario<Integer> arbol) {

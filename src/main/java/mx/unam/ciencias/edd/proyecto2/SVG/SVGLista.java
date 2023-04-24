@@ -1,9 +1,18 @@
-package mx.unam.ciencias.edd.proyecto2;
+package mx.unam.ciencias.edd.proyecto2.SVG;
 
 import mx.unam.ciencias.edd.Lista;
+import mx.unam.ciencias.edd.proyecto2.Lector;
 
+/**
+ * Clase que genera un String con las instrucciones nesesarias para imprimir
+ * una Lista en formato SVG
+ */
 public class SVGLista {
-
+    
+    /**
+     * metodo estatico encardado de imprimr el SVG.
+     * @param Lista es la estructura en donde estan los datos a imprimir.
+     */
     protected static void graficarLista(Lista<Integer> listaS, boolean esLista) {
 
         String svg = SVGLineas.iniciarGraficos();

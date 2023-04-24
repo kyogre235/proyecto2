@@ -1,10 +1,11 @@
-package mx.unam.ciencias.edd.proyecto2;
-
+package mx.unam.ciencias.edd.proyecto2.SVG;
 import mx.unam.ciencias.edd.Lista;
 import mx.unam.ciencias.edd.ArbolBinarioCompleto;
 import mx.unam.ciencias.edd.ArbolBinarioOrdenado;
 import mx.unam.ciencias.edd.ArbolRojinegro;
 import mx.unam.ciencias.edd.ArbolAVL;
+import mx.unam.ciencias.edd.Grafica;
+import mx.unam.ciencias.edd.proyecto2.*;
 
 public class SVGgenerador {
     /**constructor privado para evitar la creacion de instancias*/
@@ -32,7 +33,8 @@ public class SVGgenerador {
 
             } else if(argumento.contains("ArbolBinarioOrdenado")){
                 ArbolBinarioOrdenado<Integer> estructura = CreadorEsctructuras.creadorArbolBinarioOrdenado(argumento);
-                 SVGArbolBinarioOrdenado.graficarArbol(estructura);
+                SVGArbolBinarioOrdenado a = new SVGArbolBinarioOrdenado();
+                 a.graficarArbol(estructura);
 
             } else if(argumento.contains("ArbolRojinegro")){
                 ArbolRojinegro<Integer> estructura = CreadorEsctructuras.creadorArbolRojinegro(argumento);
@@ -45,9 +47,10 @@ public class SVGgenerador {
                 a.graficarArbol(estructura); 
                 
             } else if(argumento.contains("Grafica")){
-                //coloca la grafica
+                Grafica<Integer> estructura = CreadorEsctructuras.creadorGrafica(argumento);
+                SVGGrafica a = new SVGGrafica();
+                a.graficarGrafica(estructura);
                 
-                CreadorEsctructuras.creadorGrafica(argumento);
                 
             } else {
                 System.err.println("la escructura no esta bien escrita o no existe,"+"\n"
