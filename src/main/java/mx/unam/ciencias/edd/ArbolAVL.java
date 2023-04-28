@@ -127,7 +127,7 @@ public class ArbolAVL<T extends Comparable<T>>
         if(vertice == null)
             return;
         
-        vertice.altura = altura(vertice);
+        vertice.altura = alturaAc(vertice);
         int balance = balance(vertice);
 
         if(balance == -2){
@@ -135,12 +135,12 @@ public class ArbolAVL<T extends Comparable<T>>
             
             if(balance(derecho) == 1){
                 super.giraDerecha(derecho);
-                derecho.altura = altura(derecho);
+                derecho.altura = alturaAc(derecho);
             }
             
             super.giraIzquierda(vertice);
-            derecho.altura = altura(derecho);
-            vertice.altura = altura(vertice);
+            derecho.altura = alturaAc(derecho);
+            vertice.altura = alturaAc(vertice);
                  
         }
 
@@ -152,8 +152,8 @@ public class ArbolAVL<T extends Comparable<T>>
             }
             
             super.giraDerecha(vertice);
-            izquierdo.altura = altura(izquierdo);
-            vertice.altura = altura(vertice);
+            izquierdo.altura = alturaAc(izquierdo);
+            vertice.altura = alturaAc(vertice);
                  
         }
         
@@ -189,18 +189,20 @@ public class ArbolAVL<T extends Comparable<T>>
         if(v.izquierdo == null && v.derecho == null)
             return 0;
         else if(v.izquierdo != null && v.derecho != null )
-            return v.izquierdo.altura() - v.derecho.altura();
+            return altura(casteo(v.izquierdo)) - altura(casteo(v.derecho));
         else if(v.izquierdo != null && v.derecho == null )
-            return v.izquierdo.altura() - (-1);
+            return altura(casteo(v.izquierdo)) - (-1);
         else
-            return (-1) - v.derecho.altura();
+            return (-1) - altura(casteo(v.derecho));
         
         
     }
 
-    private int altura(VerticeAVL v){
-        if(v == null)
-            return -1;
+    private int altura(VerticeAVL vertice){
+        return vertice == null ? -1 : vertice.altura;
+    }
+
+    private int alturaAc(VerticeAVL v){
         
         return 1 + Math.max(altura(casteo(v.izquierdo)),altura(casteo(v.derecho)));
     }

@@ -73,6 +73,7 @@ public class CreadorEsctructuras {
         return aAVL;
     }
 
+
     /**
      * metodo estatico que crea una Grafica<Integer> a partir de la entrada recibida
      * @param args es un String con los datos nesesarios
@@ -134,6 +135,8 @@ public class CreadorEsctructuras {
                 if(valor.contains("k"))
                     valor = "";
                 valor = valor + ch[j];
+                if (j > 0 && ch[j - 1] == '-')
+                    valor = '-' + valor;
             }
 
             if(!valor.contains("k") && (Character.isWhitespace(ch[j]))){

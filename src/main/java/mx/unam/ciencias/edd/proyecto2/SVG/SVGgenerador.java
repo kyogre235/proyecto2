@@ -50,8 +50,10 @@ public class SVGgenerador {
                 Grafica<Integer> estructura = CreadorEsctructuras.creadorGrafica(argumento);
                 SVGGrafica a = new SVGGrafica();
                 a.graficarGrafica(estructura);
-                
-                
+        
+            } else if(argumento.contains("Arreglo")){
+                Lista<Integer> estructura = CreadorEsctructuras.creadorLista(argumento);
+                SVGArreglo.graficarArreglo(estructura);
             } else {
                 System.err.println("la escructura no esta bien escrita o no existe,"+"\n"
                 +"tienes que poner el nombre de la esctructura iniciando con mayusculas\npor ejemplo:\n"+"Lista\nArbolBinarioCompleto\netc.");
