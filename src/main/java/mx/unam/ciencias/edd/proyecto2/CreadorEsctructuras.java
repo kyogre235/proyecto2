@@ -1,6 +1,7 @@
 package mx.unam.ciencias.edd.proyecto2;
 
 import mx.unam.ciencias.edd.Lista;
+import mx.unam.ciencias.edd.proyecto2.SVG.SVGLineas;
 import mx.unam.ciencias.edd.ArbolBinarioCompleto;
 import mx.unam.ciencias.edd.ArbolBinarioOrdenado;
 import mx.unam.ciencias.edd.ArbolRojinegro;
@@ -93,10 +94,9 @@ public class CreadorEsctructuras {
             if(a == b){
                 if(grafica.contiene(a)){
                     System.err.println("un elemento no puede ser aislado, ya esta conectado a otro vertice");
-                    System.exit(0);
-                }
-                       
-            grafica.agrega(a);
+                    System.exit(1);
+                }      
+                grafica.agrega(a);
             } else{
                 boolean A = grafica.contiene(a);
                 boolean B = grafica.contiene(b);
@@ -143,6 +143,10 @@ public class CreadorEsctructuras {
                 lista.agrega(Integer.parseInt(valor));
                 valor = "k";
             }
+        }
+        if(lista.esVacia()){
+            System.out.println(SVGLineas.graficaVacia());
+            System.exit(1);
         }
         return lista;
     }

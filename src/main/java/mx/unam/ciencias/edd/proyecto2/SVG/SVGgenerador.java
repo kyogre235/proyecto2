@@ -57,6 +57,8 @@ public class SVGgenerador {
             } else {
                 System.err.println("la escructura no esta bien escrita o no existe,"+"\n"
                 +"tienes que poner el nombre de la esctructura iniciando con mayusculas\npor ejemplo:\n"+"Lista\nArbolBinarioCompleto\netc.");
+
+                System.exit(1); 
             }
     }
 }

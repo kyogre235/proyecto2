@@ -33,6 +33,10 @@ public class SVGLineas {
         return String.format("<svg width='%f' height='%f'>\n", ancho, largo)+"<g>\n"+
         String.format("<rect width='%f' height='%f' stroke='white' fill='white'/>\n", ancho, largo);
     }
+    public static String graficaVacia(){
+        String svg = "<?xml version='1.0' encoding='UTF-8' ?><svg width='200' height='200'><g><rect width='200' height='200' stroke='white' fill='white'/></g></svg>";
+        return svg; 
+    }
     protected static String finalizarGrafica(){
         return "</g>\n</svg>";
     }

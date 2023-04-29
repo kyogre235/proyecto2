@@ -65,7 +65,7 @@ public class Lector {
             return linea;
         } catch (IOException e) {
             System.err.println("ha habido un error al leer la entrada estandar, por favor revise que todo este correcto");
-            System.exit(0);
+            System.exit(1);
         }
         return linea;
     }  
